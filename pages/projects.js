@@ -2,6 +2,7 @@
 
 import { TOKEN, DATABASE_ID } from '../config'
 import ProjectsItem from '../components/projects/projects-item'
+
 export default function Projects({projects}) {
 
     console.log(projects)
@@ -32,7 +33,43 @@ export default function Projects({projects}) {
 
 
 // 빌드 타임에 호출
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//     const options = {
+//         method: 'POST',
+//         headers: {
+//             Accept: 'application/json',
+//             'Notion-Version': '2022-06-28',
+//             'content-type': 'application/json',
+//             Authorization: `Bearer ${TOKEN}`
+
+//         },
+//         body: JSON.stringify({
+//             sorts: [
+//                 {
+//                     "property": 'Name',
+//                     "direction": 'ascending'
+//                 }
+//             ],
+
+//             page_size: 100
+//         })
+//     };
+
+//     const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
+//     const projects = await res.json()
+
+//     // const projectNames = projects.results.map((aProject) => (
+//     //     aProject.properties.Name.title[0].plain_text
+//     // ))
+
+//     console.log(`projectIds: ${projects}`)
+
+//     return {
+//       props: {projects}, // will be passed to the page component as props
+//     };
+// }
+
+export async function getServerSideProps() {
     const options = {
         method: 'POST',
         headers: {
@@ -67,4 +104,3 @@ export async function getStaticProps() {
       props: {projects}, // will be passed to the page component as props
     };
 }
-
