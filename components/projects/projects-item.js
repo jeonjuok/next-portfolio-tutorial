@@ -2,6 +2,7 @@ import Image from "next/image";
 
 export default function ProjectsItem({data}) {
 
+    const item_detail = data.url
     const title = data.properties.Name.title[0].plain_text
     const description = data.properties.Description.rich_text.plain_text
     const github = data.properties.Github.url
@@ -31,20 +32,25 @@ export default function ProjectsItem({data}) {
 
 
     return (
-        <div className="_project-card flex flex-col m-3 bg-slate-700 rounded-md">
-            <Image
-                className="rounded-md"  
-                src={imgSrc}
-                
-                width={600}
-                height={400}
-                responsive
-                cover
-                quality={100}                
-                alt={title}
-            />
 
-            <h1>{title}</h1>
+        <div className="_project-card flex flex-col m-3 bg-slate-700 rounded-md">
+            <a href={item_detail}>
+                <Image
+                    className="rounded-md"  
+                    src={imgSrc}
+                    
+                    width={600}
+                    height={400}
+                    responsive
+                    cover
+                    quality={100}                
+                    alt={title}
+                />
+            </a>
+
+            <a href={item_detail}>
+                <h1>{title}</h1>
+            </a>            
             <h3>{description}</h3>
             <a href={github}>깃허브 바로가기</a>
             <a href={youtube}>유트브 시연영상 바로가기</a>
@@ -59,7 +65,5 @@ export default function ProjectsItem({data}) {
                 ))}
             </div>
         </div>
-
-
     )
 }
