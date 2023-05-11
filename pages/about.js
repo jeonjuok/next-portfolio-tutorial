@@ -28,7 +28,7 @@ export default function About({projects}) {
     )
 }
 // 빌드 타임에 호출
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const options = {
         method: 'POST',
         headers: {
