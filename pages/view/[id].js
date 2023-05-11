@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Item from "components/Item";
+import Item from "components/shop/Item";
 import { Loader } from "semantic-ui-react";
 
 import { Inter } from "next/font/google";

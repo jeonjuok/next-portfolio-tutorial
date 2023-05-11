@@ -2,7 +2,7 @@ import Axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { Divider, Header, Loader } from "semantic-ui-react";
-import ItemList from "../components/ItemList";
+import ItemList from "../components/shop/ItemList";
 //import styles from "../styles/Home.module.css";
 import { Inter } from "next/font/google";
 

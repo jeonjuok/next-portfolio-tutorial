@@ -1,5 +1,5 @@
 import { Button, Header, Image } from "semantic-ui-react";
-import styles from "./Item.module.css";
+import styles from "/public/css/Item.module.css";
 
 export default function Item({ item }) {
   const {

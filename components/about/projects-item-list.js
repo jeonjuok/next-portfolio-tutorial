@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function ProjectsItem({data}) {
+export default function ProjectsItemList({data}) {
 
     const item_detail = data.url
     const title = data.properties.Name.title[0].plain_text
@@ -12,8 +13,8 @@ export default function ProjectsItem({data}) {
     const start = data.properties.WorkPeriod.date.start
     const end = data.properties.WorkPeriod.date.end
 
-    console.log(`description: ${description}`)
-
+    // console.log(`description: ${description}`)
+    
     const calculatedPeriod = (start, end) => {
         const startDateStringArray = start.split('-');
         const endDateStringArray = end.split('-');
@@ -21,13 +22,13 @@ export default function ProjectsItem({data}) {
         var startDate = new Date(startDateStringArray[0], startDateStringArray[1], startDateStringArray[2]);
         var endDate = new Date(endDateStringArray[0], endDateStringArray[1], endDateStringArray[2]);
 
-        console.log(`startDate: ${startDate}`)
-        console.log(`endDate: ${endDate}`)
+        // console.log(`startDate: ${startDate}`)
+        // console.log(`endDate: ${endDate}`)
 
         const diffInMs = Math.abs(endDate - startDate);
         const result = diffInMs / (1000 * 60 * 60 * 24);
 
-        console.log(`기간 : ${result}`)
+        // console.log(`기간 : ${result}`)
         return result;
     };
 
@@ -35,7 +36,7 @@ export default function ProjectsItem({data}) {
     return (
 
         <div className="_project-card flex flex-col m-3 bg-slate-700 rounded-md">
-            <a href={item_detail}>
+            <Link href={{ pathname: '/detail/[id]', query: { id: data.id } }} as={'/detail/[id]'}>
                 <Image
                     className="rounded-md"  
                     src={imgSrc}
@@ -47,7 +48,7 @@ export default function ProjectsItem({data}) {
                     quality={100}                
                     alt={title}
                 />
-            </a>
+            </Link>
 
             <a href={item_detail}>
                 <h1>{title}</h1>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
-import style from './ItemList.module.css'
+import style from '/public/css/ItemList.module.css'
 import Link from 'next/link'
 
 
