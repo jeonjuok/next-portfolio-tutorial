@@ -36,7 +36,6 @@ export async function getServerSideProps() {
             'Notion-Version': '2022-06-28',
             'content-type': 'application/json',
             Authorization: `Bearer ${TOKEN}`
-
         },
         body: JSON.stringify({
             sorts: [
@@ -45,7 +44,6 @@ export async function getServerSideProps() {
                     "direction": 'ascending'
                 }
             ],
-
             page_size: 100
         })
     };
@@ -57,7 +55,7 @@ export async function getServerSideProps() {
     //     aProject.properties.Name.title[0].plain_text
     // ))
 
-    console.log(`projectIds: ${projects}`)
+    // console.log(`projectIds: ${projects}`)
 
     return {
       props: {projects}, // will be passed to the page component as props

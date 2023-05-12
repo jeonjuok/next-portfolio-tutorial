@@ -2,11 +2,7 @@ import { TOKEN, DATABASE_ID } from '../config'
 import ProjectsItem from '../components/projects/projects-item'
 
 export default function Projects({projects}) {
-
-    console.log(projects)
-    
-  
-   
+    // console.log(projects)
     return (
         <>
             <h1 className="text-4xl font-bold sm:text-6xl">총 프로젝트 : {projects.results.length}</h1>

@@ -19,6 +19,7 @@ export default function Header() {
                         <Link href="/about" className="mr-5 hover:text-gray-900">About</Link>
                         <Link href="/projects" className="mr-5 hover:text-gray-900">Projects</Link>
                         <Link href="/notice" className="mr-5 hover:text-gray-900">Notice</Link>
+                        <Link href="/faq" className="mr-5 hover:text-gray-900">FAQ</Link>                        
                         <Link href="/shop" className="mr-5 hover:text-gray-900">Shopping Mall</Link>                    
                     </nav>
                     
