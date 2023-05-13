@@ -13,9 +13,32 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Post({ projects }) {
 
     return (
-        <>
-            <Item key={projects.id} data={projects} />
-        </>
+
+
+        <section className="text-gray-600 body-font">
+            <div className="container px-5 py-10 mx-auto">
+                <div className="text-center mb-10">
+                    <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">Projects</h1>
+                    <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+                </div>
+            </div>
+
+            <div className="container px-5 py-10 mx-auto">
+                <div class="flex flex-wrap -m-4">
+                    {/* <div className="leading-relaxed">
+                        <h1>No : {projects.results.length}</h1>
+                    </div> */}
+
+                              
+                    <Item key={projects.id} data={projects} />
+                    
+                </div>
+            </div>
+
+        </section>
+
+
+
     )
 }
 
