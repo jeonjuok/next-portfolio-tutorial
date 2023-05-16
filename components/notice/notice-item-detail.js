@@ -7,13 +7,13 @@ export default function ProjectsItemDetail({data}) {
 
     const item_detail = data.url
     const title = data.properties.Name.title[0].plain_text
-    const description = data.properties.Description.rich_text[0].plain_text
-    const github = data.properties.Github.url
-    const youtube = data.properties.Youtube.url
-    const imgSrc = data.cover.file?.url || data.cover.external.url
-    const tags = data.properties.Tags.multi_select
-    const start = data.properties.WorkPeriod.date.start
-    const end = data.properties.WorkPeriod.date.end
+    // const description = data.properties.Description.rich_text[0].plain_text
+    // const github = data.properties.Github.url
+    // const youtube = data.properties.Youtube.url
+    // const imgSrc = data.cover.file?.url || data.cover.external.url
+    // const tags = data.properties.Tags.multi_select
+    // const start = data.properties.WorkPeriod.date.start
+    // const end = data.properties.WorkPeriod.date.end
 
 
     
@@ -41,7 +41,7 @@ export default function ProjectsItemDetail({data}) {
 <section className="text-gray-600 body-font overflow-hidden">
   <div className="container px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-        <Image
+        {/* <Image
             className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"  
             src={imgSrc}                
             width={800}
@@ -50,7 +50,7 @@ export default function ProjectsItemDetail({data}) {
             cover
             quality={100}                
             alt={title}
-        />
+        /> */}
 
 
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -93,7 +93,7 @@ export default function ProjectsItemDetail({data}) {
             </a>
           </span>
         </div>
-        <p className="leading-relaxed">{description}</p>
+        <p className="leading-relaxed">{title}</p>
         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
           <div className="flex">
             <span className="mr-3">Color</span>
@@ -128,9 +128,9 @@ export default function ProjectsItemDetail({data}) {
           </button>
         </div>
 
-        <a href={github}>깃허브 바로가기</a>
-        <a href={youtube}>유트브 시연영상 바로가기</a>
-        <p className="my-1 ">
+        <a href={title}>깃허브 바로가기</a>
+        <a href={title}>유트브 시연영상 바로가기</a>
+        {/* <p className="my-1 ">
                 작업기간 : {start} ~ {end} ({calculatedPeriod(start, end)}일)
         </p>
         <div className="flex items-start mt-">
@@ -139,7 +139,7 @@ export default function ProjectsItemDetail({data}) {
                     {aTag.name}
                 </h5>
             ))}
-        </div>
+        </div> */}
 
       </div>
     </div>
