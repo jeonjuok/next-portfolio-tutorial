@@ -7,10 +7,12 @@ export default function ProjectsItemDetail({data}) {
 
     const item_detail = data.url
     const title = data.properties.Name.title[0].plain_text
+    const local = data.properties.위치.multi_select[0].name
+    const team = data.properties.팀.select.name
     // const description = data.properties.Description.rich_text[0].plain_text
     // const github = data.properties.Github.url
     // const youtube = data.properties.Youtube.url
-    // const imgSrc = data.cover.file?.url || data.cover.external.url
+    const imgSrc = data.cover.file?.url || data.cover.external.url
     // const tags = data.properties.Tags.multi_select
     // const start = data.properties.WorkPeriod.date.start
     // const end = data.properties.WorkPeriod.date.end
@@ -41,7 +43,7 @@ export default function ProjectsItemDetail({data}) {
 <section className="text-gray-600 body-font overflow-hidden">
   <div className="container px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-        {/* <Image
+        <Image
             className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"  
             src={imgSrc}                
             width={800}
@@ -50,11 +52,10 @@ export default function ProjectsItemDetail({data}) {
             cover
             quality={100}                
             alt={title}
-        /> */}
-
-
+        />
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest">{local}</h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest">{team}</h2>
         <a href={item_detail}><h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1></a>
         <div className="flex mb-4">
           <span className="flex items-center">
@@ -128,7 +129,7 @@ export default function ProjectsItemDetail({data}) {
           </button>
         </div>
 
-        <a href={title}>깃허브 바로가기</a>
+        <a href={team}>{team}</a>
         <a href={title}>유트브 시연영상 바로가기</a>
         {/* <p className="my-1 ">
                 작업기간 : {start} ~ {end} ({calculatedPeriod(start, end)}일)

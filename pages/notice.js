@@ -69,11 +69,8 @@ export async function getServerSideProps() {
         })
     };
 
-
     const res = await fetch(`https://api.notion.com/v1/databases/${NOTICE_DATABASE_ID}/query`, options);
     const projects = await res.json();
-    
-
     
     // const projectNames = projects.results.map((aProject) => (
     //     aProject.properties.Name.title[0].plain_text

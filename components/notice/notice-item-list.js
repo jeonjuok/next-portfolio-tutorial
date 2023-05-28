@@ -3,12 +3,13 @@ import Link from "next/link";
 
 export default function ProjectsItemList({data}) {
 
-    // const item_detail = data.url
     const title = data.properties.Name.title[0].plain_text
+    const team = data.properties.팀.select.name
+    // const item_detail = data.url
     // const description = data.properties.Description.rich_text[0].plain_text
     // const github = data.properties.Github.url
     // const youtube = data.properties.Youtube.url
-    // const imgSrc = data.cover.file?.url || data.cover.external.url
+    const imgSrc = data.cover.file?.url || data.cover.external.url
     // const tags = data.properties.Tags.multi_select
     // const start = data.properties.WorkPeriod.date.start
     // const end = data.properties.WorkPeriod.date.end
@@ -37,8 +38,7 @@ export default function ProjectsItemList({data}) {
         <div className="p-4 md:w-1/3">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <Link href={{ pathname: '/notice/[id]', query: { id: data.id } }} as={'/notice/[id]'}>
-                여기로
-                {/* <Image
+                <Image
                     className="lg:h-48 md:h-36 w-full object-cover object-center"  
                     src={imgSrc}                
                     width={600}
@@ -47,17 +47,17 @@ export default function ProjectsItemList({data}) {
                     cover
                     quality={100}                
                     alt={title}
-                /> */}
+                />
             </Link>
             <div className="p-6">
-                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{team}</h2>
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                         <Link href={{ pathname: '/notice/[id]', query: { id: data.id } }} as={'/notice/[id]'}>
                             {/* <a href={item_detail}><h1>{title}</h1></a> */}
                             <h1>{title}</h1>
                         </Link>
                     </h1>
-                    {/* <p className="leading-relaxed mb-3">{description}</p>
+                    <p className="leading-relaxed mb-3">{title}</p>
                     <div className="flex items-center flex-wrap ">
 
                         <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
@@ -79,12 +79,12 @@ export default function ProjectsItemList({data}) {
                         </span>
 
                         <div className="flex items-start mt-2">
-                            <a className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" href={github}>깃허브 바로가기</a>
+                            <a className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" href={team}>{team}</a>
                         </div>
                         <div className="flex items-start mt-2">
-                            <a className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" href={youtube}>유트브 시연영상 바로가기</a>
+                            <a className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" href={title}>유트브 시연영상 바로가기</a>
                         </div>
-                        <div className="flex items-start mt-2">
+                        {/* <div className="flex items-start mt-2">
                             <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                                     작업기간 : {start} ~ {end} ({calculatedPeriod(start, end)}일)
                             </p>
@@ -95,9 +95,9 @@ export default function ProjectsItemList({data}) {
                                         {aTag.name}
                                     </h5>
                                 ))}
-                        </div>
+                        </div> */}
 
-                    </div> */}
+                    </div>
             </div>
             </div>
         </div>
